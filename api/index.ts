@@ -1,4 +1,6 @@
-import express from "express";
+import express, { json } from "express";
+import userRouter from "./routes/UserRoute";
+import authRouter from "./routes/authRoute";
 
 import mongoose from "mongoose";
 
@@ -12,7 +14,11 @@ mongoose
   });
 
 const app = express();
+app.use(express.json());
 
-app.listen(3000, () => {
+app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
+
+app.listen(3001, () => {
   console.log("sever is running on port 3000!");
 });
