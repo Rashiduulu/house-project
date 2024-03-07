@@ -22,3 +22,13 @@ app.use("/api/auth", authRouter);
 app.listen(3001, () => {
   console.log("sever is running on port 3000!");
 });
+
+app.use((err: any, req: any, res: any, next: any) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Interval Server Error";
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
+});
