@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: rgb(237, 237, 237);
+}
+
 .container-blog {
   max-width: 1440px;
   padding-right: 2rem;

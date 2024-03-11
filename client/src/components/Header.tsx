@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
   const navbar = [
     { id: 1, name: "Home", link: "/" },
     { id: 2, name: "About", link: "/about" },
-    { id: 2, name: "Sign In", link: "/signIn" },
+    { id: 2, name: "Sign In", link: "/sign-in" },
   ];
 
   return (
