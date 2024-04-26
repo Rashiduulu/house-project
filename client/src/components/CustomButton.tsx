@@ -25,7 +25,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
   const buttonContent = (
     <>
       {loading ? (
-        <FaSpinner className="animate-spin text-[18px] text-white" />
+        <FaSpinner className="animate-spin flex justify-center w-full text-[18px] text-white" />
       ) : null}
       {!loading && text}
     </>

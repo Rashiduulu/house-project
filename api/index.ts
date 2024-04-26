@@ -1,9 +1,9 @@
 import express, { json } from "express";
 import userRouter from "./routes/UserRoute";
 import authRouter from "./routes/authRoute";
-
 import mongoose from "mongoose";
 
+const cors = require("cors");
 mongoose
   .connect("mongodb://localhost:27017/house-project")
   .then(() => {
@@ -14,13 +14,17 @@ mongoose
   });
 
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(express.json());
-
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 
 app.listen(3001, () => {
-  console.log("sever is running on port 3000!");
+  console.log("sever is running on port 3001!");
 });
 
 app.use((err: any, req: any, res: any, next: any) => {
